@@ -1,3 +1,63 @@
-Dentro de  la aplicacion las complicaciones que logre tener es para usar el google AR services ya que es para dispositivos nuevos
-ademas de que no podia mandar a llamar un dato tomando este como null reference el texto se arreglo importando algunas librerias
-pero el error persistia en el rawimage tomando este dato como null reference
+Introducción
+
+Este informe describe el desarrollo de una aplicación móvil con funcionalidades de Realidad Aumentada (AR) 
+utilizando Google AR Services y Unity. La aplicación permite la visualización de modelos 3D en entornos reales
+mediante la detección de superficies y la interacción del usuario con los objetos renderizados en AR.
+
+Tecnologías Utilizadas:
+
+Unity: Motor de desarrollo para la creación de la aplicación y gestión de los elementos en 3D.
+
+Google AR Services (ARCore): SDK para la detección de superficies y el renderizado de modelos 3D en tiempo real.
+
+C#: Lenguaje de programación utilizado para la lógica de la aplicación y la manipulación de objetos en Unity.
+
+TextMeshPro (TMP): Biblioteca utilizada para la mejora en la visualización de textos dentro de la aplicación.
+
+Explicación del Desarrollo:
+
+La implementación de la Realidad Aumentada en la aplicación se basó en los siguientes pasos:
+
+Configuración de Google AR Services
+
+Se integró el SDK de ARCore en Unity para habilitar la detección de superficies y la colocación de modelos 3D.
+
+Se estableció la configuración de XR Origin en lugar de AR Session Origin debido a cambios en las versiones recientes de Unity.
+
+Detección de Superficies
+
+Se implementó la función de detección de superficies planas para ubicar objetos 3D en el entorno.
+
+Se utilizó la API de ARCore para el anclaje de objetos en ubicaciones específicas del espacio real.
+
+Interacciones con Objetos 3D
+
+Se agregaron botones de interfaz para permitir la selección y colocación de modelos 3D en la escena aumentada.
+
+Se utilizó ItemButtonManager para gestionar las interacciones con los elementos 3D.
+
+Dificultades y Soluciones Encontradas
+
+1. Problemas con Google AR Services
+
+Dificultad: Google AR Services requiere dispositivos recientes y no es compatible con versiones antiguas.
+
+Solución: Se verificó la compatibilidad de los dispositivos antes de habilitar la funcionalidad AR y se mostró un mensaje de advertencia en dispositivos no soportados.
+
+2. Error de NullReferenceException en TMP_Text
+
+Dificultad: Al intentar acceder a TextMeshPro, la referencia a TMP_Text se consideraba nula.
+
+Solución: Se solucionó importando using TMPro; y reemplazando GetComponent<Text> por GetComponent<TMP_Text>.
+
+3. NullReferenceException en RawImage
+
+Dificultad: RawImage devolvía un error de referencia nula al intentar asignar una textura desde un Sprite.
+
+Conclusión y Aprendizajes
+
+El desarrollo de la aplicación permitió comprender mejor la implementación de AR en Unity y los desafíos técnicos que surgen al trabajar con tecnologías avanzadas como ARCore.
+La solución de errores comunes, como NullReferenceException, fue clave para garantizar un funcionamiento estable. Además, se destacó la importancia de verificar la compatibilidad de los dispositivos antes de utilizar AR.
+
+Este proyecto proporcionó una base sólida para futuras mejoras en la aplicación y la optimización del rendimiento en la detección de superficies y la interacción con modelos 3D.
+
